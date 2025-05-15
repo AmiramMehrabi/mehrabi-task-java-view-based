@@ -1,14 +1,13 @@
 package com.example.mehrabi_task_java_view_based;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(
                     this,
                     textToShow,
-                    LENGTH_LONG
+                    LENGTH_SHORT
             ).show();
 
             long registrationTime = System.currentTimeMillis();
@@ -88,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
                 runOnUiThread(() -> {
                     Toast.makeText(this, "کاربر با موفقیت ثبت شد!", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    startActivity(intent);
+                    finish();
                 });
             });
 
@@ -150,6 +153,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (databaseExecutor != null && !databaseExecutor.isShutdown()) {
+            databaseExecutor.shutdown();
         }
     }
 }

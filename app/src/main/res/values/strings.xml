@@ -7,4 +7,7 @@
     <string name="full_name">Full Name</string>
     <string name="password">Password</string>
     <string name="button_txt">Register</string>
+    <string name="result_screen_title">List of users</string>
+    <string name="no_users_text">There is no users registered.</string>
+    <string name="time_txt">Time</string>
 </resources>

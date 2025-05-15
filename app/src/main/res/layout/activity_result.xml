@@ -9,31 +9,45 @@
     tools:context=".ResultActivity">
 
 
-    <TableLayout
+    <TextView
+        android:id="@+id/title_txt"
+        android:text="@string/result_screen_title"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <include
+        android:id="@+id/fixed_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        layout="@layout/item_user"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_txt"/>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/users_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fixed_item" />
 
-            <TextView
-                android:text="Email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/no_users_txt"
+        android:text="@string/no_users_text"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="Email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </TableRow>
-    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
